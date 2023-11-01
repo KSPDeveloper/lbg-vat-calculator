@@ -51,7 +51,7 @@ pipeline {
     }
       steps {
     withSonarQubeEnv('sonar-qube-kyle') {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar"
+      sh "mvn clean verify sonar:sonar"
         }
   }
   }
