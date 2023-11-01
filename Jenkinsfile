@@ -23,9 +23,8 @@ pipeline {
           waitForQualityGate abortPipeline: true
         }
       }
-      
     }
-    stage('Checkout') {
+    stage('Checkout mvn') {
         steps {
              git branch: 'main', url: 'https://github.com/KSPDeveloper/lbg-hello-world-maven.git'
              }
