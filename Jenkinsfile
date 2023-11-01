@@ -34,7 +34,7 @@ pipeline {
              sh "mvn clean compile"
         }
     }
-     stage('Test'){
+    stage('Test'){
         steps{
              sh "mvn test"
          }
@@ -49,9 +49,11 @@ pipeline {
     environment {
        scannerHome = tool 'sonarqube'
     }
+      steps {
     withSonarQubeEnv('sonar-qube-kyle') {
       sh "${mvn}/bin/mvn clean verify sonar:sonar"
-    }
+        }
+  }
   }
  } 
 }
