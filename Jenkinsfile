@@ -48,6 +48,7 @@ pipeline {
     {
     environment {
        scannerHome = tool 'sonarqube'
+    }
     withSonarQubeEnv('sonar-qube-kyle') {
       sh "${mvn}/bin/mvn clean verify sonar:sonar"
     }
