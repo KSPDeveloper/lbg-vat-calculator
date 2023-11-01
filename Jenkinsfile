@@ -53,6 +53,6 @@ pipeline {
       sh "${mvn}/bin/mvn clean verify sonar:sonar"
     }
   }
+ } 
 }
-  }
-}
+
