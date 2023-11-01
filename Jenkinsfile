@@ -44,5 +44,14 @@ pipeline {
              sh "mvn -Dmaven.test.skip package"
           }
       }
+    stage('SonarQube Analysis for Mvn') 
+    {
+    environment {
+       scannerHome = tool 'sonarqube'
+    withSonarQubeEnv('sonar-qube-kyle') {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar"
+    }
+  }
+}
   }
 }
