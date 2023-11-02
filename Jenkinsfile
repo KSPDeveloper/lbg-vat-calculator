@@ -36,37 +36,41 @@ pipeline {
     }
     
     
-    stage('Checkout mvn') {
-        steps {
-             git branch: 'main', url: 'https://github.com/KSPDeveloper/lbg-hello-world-maven.git'
-             }
-        }
-        stage('Compile') {
-         steps {
-             sh "mvn clean compile"
-        }
-    }
-    stage('Test'){
-        steps{
-             sh "mvn test"
-         }
-    }
-    stage('Package'){
-         steps{
-             sh "mvn -Dmaven.test.skip package"
-          }
-      }
-    stage('SonarQube Analysis for Mvn') 
-    {
-    environment {
-       scannerHome = tool 'sonarqube'
-    }
-      steps {
-    withSonarQubeEnv('sonar-qube-kyle') {
-      sh "mvn clean verify sonar:sonar"
-        }
-  }
-  }
- } 
+  //   stage('Checkout mvn') {
+  //       steps {
+  //            git branch: 'main', url: 'https://github.com/KSPDeveloper/lbg-hello-world-maven.git'
+  //            }
+  //       }
+  //       stage('Compile') {
+  //        steps {
+  //            sh "mvn clean compile"
+  //       }
+  //   }
+  //   stage('Test'){
+  //       steps{
+  //            sh "mvn test"
+  //        }
+  //   }
+  //   stage('Package'){
+  //        steps{
+  //            sh "mvn -Dmaven.test.skip package"
+  //         }
+  //     }
+  //   stage('SonarQube Analysis for Mvn') 
+  //   {
+  //   environment {
+  //      scannerHome = tool 'sonarqube'
+  //   }
+  //     steps {
+  //   withSonarQubeEnv('sonar-qube-kyle') {
+  //     sh "mvn clean verify sonar:sonar"
+  //       }
+  // }
+  // }
+
+  
+ }
+
+ 
 }
 
