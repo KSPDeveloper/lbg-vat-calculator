@@ -10,6 +10,16 @@ pipeline {
         git branch: 'main', url: 'https://github.com/KSPDeveloper/lbg-vat-calculator.git'
       }
     }
+    stage('Install'){
+      steps {
+        sh "npm install"
+      }
+    }
+    stage('Test React'){
+      steps{
+        sh "npm test"
+      }
+    }
     stage('SonarQube Analsis')
     {
       environment {
@@ -24,6 +34,8 @@ pipeline {
         }
       }
     }
+    
+    
     stage('Checkout mvn') {
         steps {
              git branch: 'main', url: 'https://github.com/KSPDeveloper/lbg-hello-world-maven.git'
